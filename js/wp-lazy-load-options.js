@@ -20,10 +20,10 @@
   };
 
   $(document).ready(function() {
-    var config = new Config();
+    var config  = new Config();
     var options = config.getOptions();
 
-    $(document).lazyload(options);
+    $("img[data-original]").lazyload(options);
   });
 
 }(jQuery));
