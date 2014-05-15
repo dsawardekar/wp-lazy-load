@@ -1,39 +1,46 @@
 <div class="wrap">
-  <h2>WP-Syntax-Highlighter Settings</h2>
+  <h2>WP Lazy Load - Settings</h2>
   <form method="POST" action="{{ formUrl }}">
   {{ nonceField | raw }}
   <table class="form-table">
     <tbody>
       <tr>
         <th scope="row">
-          <label for="theme">Theme</label>
+          <label for="threshold">Threshold</label>
         </th>
         <td>
-          <select name="theme" id="theme">
-            {% for themeName in themes|sort %}
-              <option value="{{ themeName}}"
-              {{ themeName == theme ? 'selected' : '' }}>
-              {{ themeName | replace({'_': ' ', '.': ' ', '-': ' '}) | capitalize }}</option>
+          <input type="text" name="threshold" value="{{ threshold }}" />
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">
+          <label for="effect">Effect</label>
+        </th>
+        <td>
+          <select name="effect" id="effect">
+            {% for effectName in effects|sort %}
+              <option value="{{ effectName}}"
+              {{ effectName == effect ? 'selected' : '' }}>
+              {{ effectName | capitalize }}</option>
             {% endfor %}
           </select>
         </td>
       </tr>
       <tr>
         <th scope="row">
-          <label for="highlightSyntaxHighlighter">Highlight Syntax Highlighter Code Blocks</label>
+          <label for="skipInvisible">Skip Invisible Images</label>
         </th>
         <td>
-          <input type="checkbox" id="highlightSyntaxHighlighter" name="highlightSyntaxHighlighter"
-          {{ highlightSyntaxHighlighter ? 'checked' : '' }} />
+          <input type="checkbox" id="skipInvisible" name="skipInvisible"
+          {{ skipInvisible ? 'checked' : '' }} />
         </td>
       </tr>
       <tr>
         <th scope="row">
-          <label for="highlightGeshi">Highlight GeSHi Code Blocks</label>
+          <label for="placeholder">Placeholder</label>
         </th>
         <td>
-          <input type="checkbox" id="highlightGeshi" name="highlightGeshi"
-          {{ highlightGeshi ? 'checked' : '' }} />
+          <input type="text" id="placeholder" name="placeholder" value="{{ placeholder }}" />
         </td>
       </tr>
     </tbody>
