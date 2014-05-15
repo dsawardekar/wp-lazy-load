@@ -15,7 +15,7 @@ namespace :git do
 
   task :vendor do
     sh 'git add vendor'
-    sh 'git commit -m "Adds vendor"'
+    sh 'git commit -m "Adds vendor [ci skip]"'
   end
 
   task :clean do
