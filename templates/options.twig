@@ -18,7 +18,7 @@
         </th>
         <td>
           <select name="effect" id="effect">
-            {% for effectName in effects|sort %}
+            {% for effectName in effects %}
               <option value="{{ effectName}}"
               {{ effectName == effect ? 'selected' : '' }}>
               {{ effectName | capitalize }}</option>
@@ -46,8 +46,9 @@
     </tbody>
   </table>
   <p class="submit">
-    <input name="submit" id="submit" class="button button-primary" value="Save Changes" type="submit">
-    <input name="reset" id="reset" class="button" value="Restore Defaults" type="submit">
+    <input name="submit" id="submit" class="button button-primary" value="Save Changes" type="submit" />
+    <input name="reset" id="reset" class="button" value="Restore Defaults" type="submit"
+      onclick="return confirm('Are you sure?');" />
   </p>
   </form>
 </div>

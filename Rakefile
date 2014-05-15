@@ -65,7 +65,7 @@ end
 namespace :bower do
   desc "Copy Bower libraries"
   task :copy do
-    cp 'bower_components/scrollUp/js/jQuery.scrollUp.js', 'js/jquery-scroll-up.js'
+    cp 'bower_components/jquery.lazyload/jquery.lazyload.js', 'js/jquery-lazy-load.js'
   end
 
   desc "Update Bower libraries"
@@ -136,27 +136,6 @@ namespace :svn do
       tag   = "#{repo}/tags/#{version}"
 
       sh "svn copy #{trunk} #{tag} -m 'Release Tag: #{version}'"
-    end
-  end
-end
-
-namespace :browserify do
-  def browserify(name, src, output)
-    browserify = 'node_modules/.bin/browserify'
-    sh "#{browserify} -s '#{name}' -o '#{output}' '#{src}'"
-  end
-
-  desc 'Update highlight.js'
-  task 'update_hljs' do
-    browserify 'highlight_js_lib', 'node_modules/highlight.js/lib/highlight.js', 'js/highlight.js'
-  end
-
-  desc 'Update highlight.js languages'
-  task 'update_languages' do
-    Dir.glob('node_modules/highlight.js/lib/languages/*.js') do |file|
-      basename = File.basename(file, '.js')
-      name = "highlight_js_lang_#{basename}"
-      browserify name, file, "js/languages/#{basename}.js"
     end
   end
 end
