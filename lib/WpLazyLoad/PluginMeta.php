@@ -13,20 +13,20 @@ class PluginMeta extends \Arrow\PluginMeta {
   function getDefaultOptions() {
     return array(
       'threshold' => 200,
-      'effect' => 'fade',
+      'effect' => 'fadeIn',
       'skipInvisible' => true,
       'placeholder' => ''
     );
   }
 
   function getEffectTypes() {
-    return array('fade', 'show', 'none');
+    return array('fadeIn', 'none');
   }
 
   function getDefaultPlaceholder() {
     if ($this->defaultPlaceholder === null) {
       $this->defaultPlaceholder = plugins_url(
-        'img/placeholder.png', $this->getFile()
+        'img/placeholder.gif', $this->getFile()
       );
     }
 

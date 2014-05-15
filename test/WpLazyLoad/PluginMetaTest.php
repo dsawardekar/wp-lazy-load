@@ -27,8 +27,7 @@ class PluginMetaTest extends \WP_UnitTestCase {
 
   function test_it_has_effect_types() {
     $actual = $this->pluginMeta->getEffectTypes();
-    $this->assertContains('fade', $actual);
-    $this->assertContains('show', $actual);
+    $this->assertContains('fadeIn', $actual);
     $this->assertContains('none', $actual);
   }
 
