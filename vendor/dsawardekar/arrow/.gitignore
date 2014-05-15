@@ -1,0 +1,11 @@
+*.swp
+*.swo
+tmp
+vendor
+!test/plugins/*/vendor
+build
+wp-cli*.yml
+bower_components
+node_modules
+dist/*
+!dist/.gitadd
