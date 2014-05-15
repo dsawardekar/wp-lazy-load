@@ -5,18 +5,21 @@ namespace WpLazyLoad;
 class ImageSourceReplacer {
 
   public $placeholder = null;
+  public $replaced = false;
 
   function needs() {
     return array('optionsStore', 'pluginMeta');
   }
 
   function replace($content) {
+    $this->replaced = false;
     $matches = array();
     $imgs    = preg_match_all('/<img[^>]+>/', $content, $matches);
 
     if (count($matches) > 0) {
       foreach ($matches[0] as $img) {
         $content = str_replace($img, $this->toPlaceholderImg($img), $content);
+        $this->replaced = true;
       }
     }
 
