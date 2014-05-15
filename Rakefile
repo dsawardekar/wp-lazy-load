@@ -31,12 +31,12 @@ namespace :git do
     sh 'git rm Gemfile'
     sh 'git rm Rakefile'
 
-    sh 'git commit -m "Removes development files"'
+    sh 'git commit -m "Removes development files [ci skip]"'
   end
 
   task :clear_after do
     sh 'git rm -r lib/templates' if File.directory?('lib/templates')
-    sh 'git commit -m "Cleaning up after dist"'
+    sh 'git commit -m "Cleaning up after dist [ci skip]"'
   end
 
   # todo: conditionally add js libs
