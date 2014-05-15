@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: wp-lazy-load
-Description: Lazy Load images using the jQuery Lazy Load plugin
+Description: Lazy Load images using jQuery Lazy Load.
 Version: 0.1.0
 Author: Darshan Sawardekar
 Author URI: http://pressing-matters.io/
@@ -30,8 +30,8 @@ function wp_lazy_load_register() {
 }
 
 function wp_lazy_load_load() {
-  $plugin = \WpLazyLoad\Plugin::create(__FILE__);
-  $plugin->enable();
+  $file = __FILE__;
+  require_once(__DIR__ . '/wp-lazy-load-load.php');
 }
 
 wp_lazy_load_main();
