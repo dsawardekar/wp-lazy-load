@@ -35,7 +35,7 @@ class ImageSourceReplacerTest extends \WP_UnitTestCase {
 
   function test_it_can_get_path_to_default_placeholder() {
     $actual = $this->replacer->getPlaceholder();
-    $this->assertStringEndsWith('wp-lazy-load/img/placeholder.png', $actual);
+    $this->assertStringEndsWith('wp-lazy-load/img/placeholder.gif', $actual);
   }
 
   function test_it_can_get_path_to_custom_placeholder() {
@@ -67,7 +67,7 @@ class ImageSourceReplacerTest extends \WP_UnitTestCase {
 
     $matcher = array(
       'tag' => 'img',
-      'attributes' => array('src' => 'regexp:/placeholder.png$/')
+      'attributes' => array('src' => 'regexp:/placeholder.gif$/')
     );
 
     $this->assertTag($matcher, $actual);
@@ -93,7 +93,7 @@ class ImageSourceReplacerTest extends \WP_UnitTestCase {
 
     $matcher = array(
       'tag' => 'img', 'attributes' => array(
-        'src' => 'regexp:/placeholder.png$/',
+        'src' => 'regexp:/placeholder.gif$/',
         'data-original' => 'lorem.jpg'
       ),
     );
@@ -102,7 +102,7 @@ class ImageSourceReplacerTest extends \WP_UnitTestCase {
 
     $matcher = array(
       'tag' => 'img', 'attributes' => array(
-        'src' => 'regexp:/placeholder.png$/',
+        'src' => 'regexp:/placeholder.gif$/',
         'data-original' => 'ipsum.jpg'
       ),
     );

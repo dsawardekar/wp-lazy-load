@@ -2,7 +2,7 @@
 /*
 Plugin Name: wp-lazy-load
 Description: Lazy Load images using jQuery Lazy Load.
-Version: 0.1.2
+Version: 0.1.3
 Author: Darshan Sawardekar
 Author URI: http://pressing-matters.io/
 Plugin URI: http://wordpress.org/plugins/wp-lazy-load

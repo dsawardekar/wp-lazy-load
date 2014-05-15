@@ -27,14 +27,14 @@ class OptionsValidatorTest extends \WP_UnitTestCase {
   }
 
   function test_it_knows_if_custom_stylesheet_is_absent() {
-    $actual = $this->validator->isLazyPlaceholder('placeholder', 'placeholder.png', null);
+    $actual = $this->validator->isLazyPlaceholder('placeholder', 'placeholder.gif', null);
     $this->assertFalse($actual);
   }
 
   function test_it_can_load_custom_rules() {
     $this->validator->loadCustomRules();
 
-    $validator = new \Valitron\Validator(array('placeholder' => 'placeholder.png'));
+    $validator = new \Valitron\Validator(array('placeholder' => 'placeholder.gif'));
     $validator->rule('lazyPlaceholder', 'placeholder');
 
     $this->assertFalse($validator->validate());
@@ -44,7 +44,7 @@ class OptionsValidatorTest extends \WP_UnitTestCase {
     \Arrow\OptionsManager\CustomValitronRules::load();
     $input = array(
       'threshold' => '400',
-      'effect' => 'fade',
+      'effect' => 'fadeIn',
       'skipInvisible' => '1',
       'placeholder' => ''
     );
@@ -58,7 +58,7 @@ class OptionsValidatorTest extends \WP_UnitTestCase {
     $input = array(
       'threshold' => '400000',
       'effect' => 'foo',
-      'placeholder' => 'foo.png'
+      'placeholder' => 'foo.gif'
     );
 
     $actual = $this->validator->validate($input);
