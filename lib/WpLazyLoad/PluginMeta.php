@@ -4,6 +4,8 @@ namespace WpLazyLoad;
 
 class PluginMeta extends \Arrow\PluginMeta {
 
+  public $defaultPlaceholder;
+
   function getVersion() {
     return Version::$version;
   }
@@ -19,6 +21,16 @@ class PluginMeta extends \Arrow\PluginMeta {
 
   function getEffectTypes() {
     return array('fade', 'show', 'none');
+  }
+
+  function getDefaultPlaceholder() {
+    if ($this->defaultPlaceholder === null) {
+      $this->defaultPlaceholder = plugins_url(
+        'img/placeholder.png', $this->getFile()
+      );
+    }
+
+    return $this->defaultPlaceholder;
   }
 
 }
