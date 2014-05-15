@@ -26,12 +26,10 @@ function wp_lazy_load_register() {
   require_once(__DIR__ . '/vendor/dsawardekar/arrow/lib/Arrow/ArrowPluginLoader.php');
 
   $loader = ArrowPluginLoader::getInstance();
-  $loader->register('wp-lazy-load', '0.4.0', 'wp_lazy_load_load');
+  $loader->register(__FILE__, '0.5.1', 'wp_lazy_load_load');
 }
 
 function wp_lazy_load_load() {
-  require_once(__DIR__ . '/vendor/autoload.php');
-
   $plugin = \WpLazyLoad\Plugin::create(__FILE__);
   $plugin->enable();
 }

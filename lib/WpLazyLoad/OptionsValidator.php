@@ -5,6 +5,7 @@ namespace WpLazyLoad;
 class OptionsValidator extends \Arrow\OptionsManager\OptionsValidator {
 
   function loadRules($validator) {
+    $slug = $this->pluginMeta->getSlug();
     $validator
       ->rule('required', 'threshold')
       ->rule('integer', 'threshold')
@@ -15,14 +16,17 @@ class OptionsValidator extends \Arrow\OptionsManager\OptionsValidator {
       ->rule('in', 'effect', $this->pluginMeta->getEffectTypes())
 
       ->rule('safeText', 'placeholder')
-      ->rule('lazyPlaceholder', 'placeholder');
+      ->message('{field} must not contain markup')
+
+      ->rule('lazyPlaceholder', 'placeholder')
+      ->message("{field} not found in current theme's $slug directory");
   }
 
   function loadCustomRules() {
     $slug = $this->pluginMeta->getSlug();
     \Valitron\Validator::addRule(
       'lazyPlaceholder', array($this, 'isLazyPlaceholder'),
-      "Placeholder not found in your current theme\'s $slug directory"
+      "Placeholder not found in your current theme's $slug directory"
     );
   }
 
