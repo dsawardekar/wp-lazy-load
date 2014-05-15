@@ -1,0 +1,54 @@
+<div class="wrap">
+  <h2>WP Lazy Load - Settings</h2>
+  <form method="POST" action="{{ formUrl }}">
+  {{ nonceField | raw }}
+  <table class="form-table">
+    <tbody>
+      <tr>
+        <th scope="row">
+          <label for="threshold">Threshold</label>
+        </th>
+        <td>
+          <input type="text" name="threshold" value="{{ threshold }}" />
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">
+          <label for="effect">Effect</label>
+        </th>
+        <td>
+          <select name="effect" id="effect">
+            {% for effectName in effects %}
+              <option value="{{ effectName}}"
+              {{ effectName == effect ? 'selected' : '' }}>
+              {{ effectName | capitalize }}</option>
+            {% endfor %}
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">
+          <label for="skipInvisible">Skip Invisible Images</label>
+        </th>
+        <td>
+          <input type="checkbox" id="skipInvisible" name="skipInvisible"
+          {{ skipInvisible ? 'checked' : '' }} />
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">
+          <label for="placeholder">Placeholder</label>
+        </th>
+        <td>
+          <input type="text" id="placeholder" name="placeholder" value="{{ placeholder }}" />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="submit">
+    <input name="submit" id="submit" class="button button-primary" value="Save Changes" type="submit" />
+    <input name="reset" id="reset" class="button" value="Restore Defaults" type="submit"
+      onclick="return confirm('Are you sure?');" />
+  </p>
+  </form>
+</div>
