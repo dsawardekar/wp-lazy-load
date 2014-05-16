@@ -3,24 +3,25 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "ae7afa9784af0c083c1ebb5b8f0a74be",
+    "hash": "e998bb1018fbba37686557b7fc4c03c0",
     "packages": [
         {
             "name": "dsawardekar/arrow",
-            "version": "0.5.1",
+            "version": "0.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dsawardekar/arrow.git",
-                "reference": "25e38bf337f6363a15253d3ddb8a621675bc7efd"
+                "reference": "8a5cc120e869dddcef87be07d322f15f04234e48"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dsawardekar/arrow/zipball/25e38bf337f6363a15253d3ddb8a621675bc7efd",
-                "reference": "25e38bf337f6363a15253d3ddb8a621675bc7efd",
+                "url": "https://api.github.com/repos/dsawardekar/arrow/zipball/8a5cc120e869dddcef87be07d322f15f04234e48",
+                "reference": "8a5cc120e869dddcef87be07d322f15f04234e48",
                 "shasum": ""
             },
             "require": {
                 "dsawardekar/encase-php": "~0.1.0",
+                "dsawardekar/wp-requirements": "~0.3.0",
                 "twig/twig": "~1.15.0",
                 "vlucas/valitron": "~1.1.5"
             },
@@ -52,7 +53,7 @@
                 "wordpress",
                 "wordpress plugins"
             ],
-            "time": "2014-05-15 10:03:47"
+            "time": "2014-05-16 12:22:26"
         },
         {
             "name": "dsawardekar/encase-php",
