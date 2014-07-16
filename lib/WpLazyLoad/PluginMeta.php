@@ -6,16 +6,17 @@ class PluginMeta extends \Arrow\PluginMeta {
 
   public $defaultPlaceholder;
 
-  function getVersion() {
-    return Version::$version;
+  function __construct($file) {
+    parent::__construct($file);
+    $this->version = Version::$version;
   }
 
   function getDefaultOptions() {
     return array(
-      'threshold' => 200,
-      'effect' => 'fadeIn',
+      'threshold'     => 200,
+      'effect'        => 'fadeIn',
       'skipInvisible' => true,
-      'placeholder' => ''
+      'placeholder'   => ''
     );
   }
 
@@ -31,6 +32,14 @@ class PluginMeta extends \Arrow\PluginMeta {
     }
 
     return $this->defaultPlaceholder;
+  }
+
+  function getOptionsContext() {
+    $optionsStore           = $this->lookup('optionsStore');
+    $options                = $optionsStore->getOptions();
+    $options['effectTypes'] = $this->getEffectTypes();
+
+    return $options;
   }
 
 }

@@ -1,0 +1,54 @@
+<div class="wrap wrap-wp-imgur">
+  <h2 id="static-header">WP Lazy Load</h2>
+  <div id="wp-lazy-load">
+    <div id="message" class="updated progress static-notice">
+      <p>
+        <strong>Loading Settings ...</strong>
+      </p>
+    </div>
+    <form id="wp-lazy-load-form" style="display: none;">
+    <table class="form-table">
+      <tbody>
+        <tr>
+          <th scope="row">
+            <label for="threshold">Threshold</label>
+          </th>
+          <td>
+            <input type="text" name="threshold" value="" />
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">
+            <label for="effect">Effect</label>
+          </th>
+          <td>
+            <select name="effect" id="effect">
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">
+            <label for="skipInvisible">Skip Invisible Images</label>
+          </th>
+          <td>
+            <input type="checkbox" id="skipInvisible" name="skipInvisible" />
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">
+            <label for="placeholder">Placeholder</label>
+          </th>
+          <td>
+            <input type="text" id="placeholder" name="placeholder" value="" />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="submit">
+      <input name="submit" id="submit" class="button button-primary" value="Save Changes" type="submit" />
+      <input name="reset" id="reset" class="button" value="Restore Defaults" type="submit" />
+    </p>
+    </form>
+  </div>
+</div>
+
