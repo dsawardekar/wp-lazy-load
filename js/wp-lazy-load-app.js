@@ -27,7 +27,7 @@
   };
 
   var getOption = function(name) {
-    return wp_lazy_load_app_run[name];
+    return wp_lazy_load_app[name];
   };
 
   /* AJAX helpers */
@@ -129,7 +129,7 @@
   var resetForm = function(data) {
     for (var key in data) {
       if (data.hasOwnProperty(key)) {
-        wp_lazy_load_app_run[key] = data[key];
+        wp_lazy_load_app[key] = data[key];
       }
     }
 
