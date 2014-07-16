@@ -10,7 +10,10 @@
 
     options.threshold      = parseInt(opts.threshold, 10);
     options.skip_invisible = opts.skipInvisible === '1';
-    options.effect         = opts.effect;
+
+    if (opts.effect !== 'none') {
+      options.effect = opts.effect;
+    }
 
     if (opts.placeholder !== '') {
       options.placeholder = opts.placeholder;

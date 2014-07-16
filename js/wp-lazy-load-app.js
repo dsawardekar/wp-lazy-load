@@ -43,7 +43,7 @@
         } else if (response.success) {
           return response.data;
         } else {
-          return $.Deferred().reject(response.data.error).promise();
+          return $.Deferred().reject(response).promise();
         }
 
         return false;
