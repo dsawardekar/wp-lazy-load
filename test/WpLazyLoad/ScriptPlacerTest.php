@@ -19,8 +19,7 @@ class ScriptPlacerTest extends \WP_UnitTestCase {
     $this->container = new Container();
     $this->container
       ->object('pluginMeta', $this->pluginMeta)
-      ->object('assetManager', new \Arrow\AssetManager\AssetManager($this->container))
-      ->object('optionsManager', new OptionsManager($this->container))
+      ->packager('optionsPackager', 'Arrow\Options\Packager')
       ->singleton('scriptPlacer', 'WpLazyLoad\ScriptPlacer');
 
     $this->loader = $this->container->lookup('scriptLoader');

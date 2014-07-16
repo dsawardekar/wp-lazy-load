@@ -18,8 +18,7 @@ class ContentReplacerTest extends \WP_UnitTestCase {
     $this->container = new Container();
     $this->container
       ->object('pluginMeta', $this->pluginMeta)
-      ->object('optionsManager', new \Arrow\OptionsManager\OptionsManager($this->container))
-      ->object('assetManager', new \Arrow\AssetManager\AssetManager($this->container))
+      ->packager('optionsPackager', 'Arrow\Options\Packager')
       ->singleton('scriptPlacer', 'WpLazyLoad\ScriptPlacer')
       ->singleton('imageSourceReplacer', 'WpLazyLoad\ImageSourceReplacer')
       ->singleton('contentReplacer', 'WpLazyLoad\ContentReplacer');
