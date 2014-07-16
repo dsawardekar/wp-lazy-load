@@ -3,9 +3,7 @@
     "phpunit/phpunit": "~3.7"
   },
   "require": {
-    "dsawardekar/encase-php": "~0.1.0",
-    "dsawardekar/arrow": "~0.7.0",
-    "dsawardekar/wp-requirements": "~0.3.0"
+    "dsawardekar/arrow": "~1.2.2"
   },
   "autoload": {
     "psr-4": {
