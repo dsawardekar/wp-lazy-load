@@ -1,8 +1,19 @@
 (function($) {
 
   var showNotice = function(type, message) {
+    if (typeof(message) !== 'string') {
+      var messages = [];
+      var field;
+      for (field in message) {
+        messages.push(message[field]);
+      }
+
+      message = messages.join("<br />");
+    }
+
     $('#message').attr('class', 'updated ' + type);
-    $('#message p strong').text(message);
+    $('#message p strong').text('');
+    $('#message p strong').append(message);
     $('#message').css('display', 'block');
   };
 
@@ -58,7 +69,7 @@
           error = 'Unknown Response.';
         }
 
-        return $.Deferred().reject(error).promise();
+        return error;
       });
   };
 
@@ -91,7 +102,9 @@
     getFormField('skipInvisible').prop('checked', skipInvisible);
 
     initSelect();
+  };
 
+  var initButtons = function() {
     $('#submit').on('click', handleSubmit);
     $('#reset').on('click', handleReset);
   };
@@ -148,7 +161,8 @@
         showNotice('success', 'Settings saved successfully.');
         resetForm(data);
       })
-      .fail(function(error) {
+      .fail(function(response) {
+        var error = response.responseJSON.data.error;
         showNotice('error', error);
       });
   };
@@ -177,6 +191,7 @@
 
   $(document).ready(function() {
     initForm();
+    initButtons();
     reveal();
   });
 

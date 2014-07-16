@@ -18,7 +18,7 @@ class ImageSourceReplacerTest extends \WP_UnitTestCase {
     $this->container = new Container();
     $this->container
       ->object('pluginMeta', $this->pluginMeta)
-      ->object('optionsManager', new \Arrow\OptionsManager\OptionsManager($this->container))
+      ->packager('optionsPackager', 'Arrow\Options\Packager')
       ->singleton('replacer', 'WpLazyLoad\ImageSourceReplacer');
 
     $this->replacer = $this->container->lookup('replacer');

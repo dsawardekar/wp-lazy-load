@@ -100,7 +100,7 @@ end
 namespace :svn do
   desc "Copy files to svn trunk"
   task :copy do
-    sh "rsync -a tmp/dist/#{version}/ ../svn/trunk --exclude=.gitignore"
+    sh "rsync -a --delete tmp/dist/#{version}/ ../svn/trunk --exclude=.gitignore --exclude=.travis.yml"
   end
 
   desc "Add changed files to svn"
