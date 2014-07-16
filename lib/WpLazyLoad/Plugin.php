@@ -12,6 +12,7 @@ class Plugin extends \Arrow\Plugin {
     $this->container
       ->object('pluginMeta', new PluginMeta($file))
       ->packager('optionsPackager', 'Arrow\Options\Packager')
+      ->singleton('optionsController', 'WpLazyLoad\OptionsController')
       ->singleton('imageSourceReplacer', 'WpLazyLoad\ImageSourceReplacer')
       ->singleton('scriptPlacer', 'WpLazyLoad\ScriptPlacer')
       ->singleton('contentReplacer', 'WpLazyLoad\ContentReplacer');
@@ -23,7 +24,6 @@ class Plugin extends \Arrow\Plugin {
 
   function initFrontEnd() {
     $contentReplacer = $this->lookup('contentReplacer');
-
     add_action('the_content', array($contentReplacer, 'replace'), 99);
   }
 
