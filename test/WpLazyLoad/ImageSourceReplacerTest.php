@@ -19,7 +19,8 @@ class ImageSourceReplacerTest extends \WP_UnitTestCase {
     $this->container
       ->object('pluginMeta', $this->pluginMeta)
       ->packager('optionsPackager', 'Arrow\Options\Packager')
-      ->singleton('replacer', 'WpLazyLoad\ImageSourceReplacer');
+      ->singleton('replacer', 'WpLazyLoad\ImageSourceReplacer')
+      ->singleton('scriptPlacer', 'WpLazyLoad\ScriptPlacer');
 
     $this->replacer = $this->container->lookup('replacer');
     $this->store    = $this->container->lookup('optionsStore');

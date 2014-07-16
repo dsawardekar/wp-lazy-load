@@ -14,8 +14,7 @@ class Plugin extends \Arrow\Plugin {
       ->packager('optionsPackager', 'Arrow\Options\Packager')
       ->singleton('optionsController', 'WpLazyLoad\OptionsController')
       ->singleton('imageSourceReplacer', 'WpLazyLoad\ImageSourceReplacer')
-      ->singleton('scriptPlacer', 'WpLazyLoad\ScriptPlacer')
-      ->singleton('contentReplacer', 'WpLazyLoad\ContentReplacer');
+      ->singleton('scriptPlacer', 'WpLazyLoad\ScriptPlacer');
   }
 
   function enable() {
@@ -23,8 +22,7 @@ class Plugin extends \Arrow\Plugin {
   }
 
   function initFrontEnd() {
-    $contentReplacer = $this->lookup('contentReplacer');
-    add_action('the_content', array($contentReplacer, 'replace'), 99);
+    $this->lookup('imageSourceReplacer')->enable();
   }
 
 }
