@@ -1,10 +1,6 @@
 (function($) {
 
-  var Config = function() {
-
-  };
-
-  Config.prototype.getOptions = function() {
+  var getOptions = function() {
     var opts    = wp_lazy_load_options;
     var options = {};
 
@@ -23,9 +19,7 @@
   };
 
   $(document).ready(function() {
-    var config  = new Config();
-    var options = config.getOptions();
-
+    var options = getOptions();
     $("img[data-original]").lazyload(options);
   });
 
