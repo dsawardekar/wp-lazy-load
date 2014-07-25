@@ -1,5 +1,6 @@
 (function($) {
 
+  var options = wp_lazy_load.options;
   var showNotice = function(type, message) {
     if (typeof(message) !== 'string') {
       var messages = [];
@@ -27,7 +28,7 @@
   };
 
   var getOption = function(name) {
-    return wp_lazy_load_app[name];
+    return options[name];
   };
 
   /* AJAX helpers */
@@ -129,7 +130,7 @@
   var resetForm = function(data) {
     for (var key in data) {
       if (data.hasOwnProperty(key)) {
-        wp_lazy_load_app[key] = data[key];
+        options[key] = data[key];
       }
     }
 
