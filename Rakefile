@@ -20,7 +20,6 @@ namespace :git do
 
   task :clean do
     sh 'rm -rf tmp'              if File.directory?('tmp')
-    sh 'rm -rf bower_components' if File.directory?('bower_components')
     sh 'rm wp-cli.local.yml'     if File.exists?('wp-cli.local.yml')
 
     sh 'git rm *.json'
@@ -30,8 +29,11 @@ namespace :git do
     sh 'git rm phpunit.xml'
     sh 'git rm Gemfile'
     sh 'git rm Rakefile'
+    sh "git rm -rf js/#{plugin_slug}" if File.directory?("js/#{plugin_slug}")
+    sh 'git rm .scrutinizer.yml'      if File.exists?('.scrutinizer.yml')
+    sh 'git rm .coveralls.yml'        if File.exists?('.coveralls.yml')
 
-    sh 'git commit -m "Removes development files [ci skip]"'
+    sh 'git commit -m "Removes development files [ci-skip]"'
   end
 
   task :clear_after do
@@ -87,14 +89,6 @@ namespace :composer do
       sh 'git commit -m "Fresh composer update"'
     end
   end
-
-  desc "Update Requirements.php"
-  task :update_requirements do
-    source = 'vendor/dsawardekar/wp-requirements/lib/MyWordPressPlugin/Requirements.php'
-    contents = File.read(source)
-    contents = contents.gsub('MyWordPressPlugin', 'WpSyntaxHighlighter')
-    File.write('lib/WpSyntaxHighlighter/Requirements.php', contents)
-  end
 end
 
 namespace :svn do
@@ -137,38 +131,6 @@ namespace :svn do
 
       sh "svn copy #{trunk} #{tag} -m 'Release Tag: #{version}'"
     end
-  end
-end
-
-namespace :generator do
-  desc 'Generate Languages'
-  task 'generate_languages' do
-    languages = Dir.glob('js/languages/*.js').map do |file|
-      File.basename(file, '.js')
-    end
-
-    template = ERB.new(File.read('lib/templates/Languages.php.erb'), nil, '-')
-    opts = OpenStruct.new({
-      :languages => languages
-    })
-
-    vars = opts.instance_eval { binding }
-    File.write('lib/WpSyntaxHighlighter/Languages.php', template.result(vars))
-  end
-
-  desc 'Generate Themes'
-  task 'generate_themes' do
-    themes = Dir.glob('css/*.css').map do |file|
-      File.basename(file, '.css')
-    end
-
-    template = ERB.new(File.read('lib/templates/Themes.php.erb'), nil, '-')
-    opts = OpenStruct.new({
-      :themes => themes
-    })
-
-    vars = opts.instance_eval { binding }
-    File.write('lib/WpSyntaxHighlighter/Themes.php', template.result(vars))
   end
 end
 
