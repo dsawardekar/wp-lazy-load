@@ -14,7 +14,7 @@ require_once(__DIR__ . '/vendor/dsawardekar/arrow/lib/Arrow/ArrowPluginLoader.ph
 function wp_lazy_load_main() {
   $options = array(
     'plugin' => 'WpLazyLoad\Plugin',
-    'arrowVersion' => '1.3.0'
+    'arrowVersion' => '1.6.0'
   );
 
   ArrowPluginLoader::load(__FILE__, $options);
