@@ -12,6 +12,10 @@ env:
   - WP_VERSION=3.9 WP_MULTISITE=0
   - WP_VERSION=3.9 WP_MULTISITE=1
 
+branches:
+  except:
+    - /^dist-.*$/
+
 install:
   - composer install
 
