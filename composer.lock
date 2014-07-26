@@ -4,20 +4,20 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "614b9649cd0f5bb1ea04ade464794a50",
+    "hash": "14d772c224744fed899a64f53bd4f8b8",
     "packages": [
         {
             "name": "dsawardekar/arrow",
-            "version": "1.4.0",
+            "version": "1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dsawardekar/arrow.git",
-                "reference": "37084c7b62480c97d75ef7bb3e8faa6c11bdb55b"
+                "reference": "762c43cc2bcd41e400ed00f9b58a983fbaff2780"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dsawardekar/arrow/zipball/37084c7b62480c97d75ef7bb3e8faa6c11bdb55b",
-                "reference": "37084c7b62480c97d75ef7bb3e8faa6c11bdb55b",
+                "url": "https://api.github.com/repos/dsawardekar/arrow/zipball/762c43cc2bcd41e400ed00f9b58a983fbaff2780",
+                "reference": "762c43cc2bcd41e400ed00f9b58a983fbaff2780",
                 "shasum": ""
             },
             "require": {
@@ -56,7 +56,7 @@
                 "wordpress",
                 "wordpress plugins"
             ],
-            "time": "2014-07-25 14:41:22"
+            "time": "2014-07-26 08:55:54"
         },
         {
             "name": "dsawardekar/encase-php",
