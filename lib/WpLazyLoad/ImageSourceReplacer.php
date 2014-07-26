@@ -6,9 +6,23 @@ class ImageSourceReplacer {
 
   public $placeholder = null;
   public $replaced = false;
+  public $scriptPlacer;
 
   function needs() {
-    return array('optionsStore', 'pluginMeta');
+    return array('optionsStore', 'pluginMeta', 'scriptPlacer');
+  }
+
+  function enable() {
+    add_action('the_content', array($this, 'replaceAndEnqueue'), 99);
+  }
+
+  function replaceAndEnqueue($content) {
+    $content = $this->replace($content);
+    if ($this->replaced) {
+      $this->scriptPlacer->enable();
+    }
+
+    return $content;
   }
 
   function replace($content) {

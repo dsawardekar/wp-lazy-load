@@ -2,10 +2,13 @@
 
 namespace WpLazyLoad;
 
-class OptionsValidator extends \Arrow\OptionsManager\OptionsValidator {
+class OptionsController extends \Arrow\Options\Controller {
 
-  function loadRules($validator) {
-    $slug = $this->pluginMeta->getSlug();
+  function patch() {
+    $this->loadCustomRules();
+
+    $slug      = $this->pluginMeta->getSlug();
+    $validator = $this->getValidator();
     $validator
       ->rule('required', 'threshold')
       ->rule('integer', 'threshold')
@@ -20,6 +23,12 @@ class OptionsValidator extends \Arrow\OptionsManager\OptionsValidator {
 
       ->rule('lazyPlaceholder', 'placeholder')
       ->message("{field} not found in current theme's $slug directory");
+
+    if ($validator->validate()) {
+      return parent::patch();
+    } else {
+      return $this->error($validator->errors());
+    }
   }
 
   function loadCustomRules() {
@@ -37,5 +46,4 @@ class OptionsValidator extends \Arrow\OptionsManager\OptionsValidator {
       return true;
     }
   }
-
 }

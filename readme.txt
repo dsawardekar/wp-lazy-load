@@ -4,7 +4,7 @@ Donate link: http://pressing-matters.io/
 Tags: lazy load, jquery lazy load, image lazy load, optimization
 Requires at least: 3.5.0
 Tested up to: 3.9
-Stable tag: 0.2.0
+Stable tag: 0.3.0
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -62,6 +62,11 @@ instead.
 Yes, see the customization section under Installation.
 
 == Changelog ==
+
+= 0.3.0 =
+
+* Upgrades to Arrow 1.6.0.
+* Migrates plugin setting page to a client-side jQuery based app.
 
 = 0.2.0 =
 

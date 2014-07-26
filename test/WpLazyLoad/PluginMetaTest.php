@@ -13,7 +13,7 @@ class PluginMetaTest extends \WP_UnitTestCase {
   }
 
   function test_it_has_correct_version() {
-    $actual = $this->pluginMeta->getVersion();
+    $actual = $this->pluginMeta->version;
     $this->assertEquals(Version::$version, $actual);
   }
 
