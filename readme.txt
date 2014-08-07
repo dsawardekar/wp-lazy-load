@@ -3,8 +3,8 @@ Contributors: dsawardekar
 Donate link: http://pressing-matters.io/
 Tags: lazy load, jquery lazy load, image lazy load, optimization
 Requires at least: 3.5.0
-Tested up to: 3.9
-Stable tag: 0.3.0
+Tested up to: 3.9.2
+Stable tag: 0.3.1
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -62,6 +62,10 @@ instead.
 Yes, see the customization section under Installation.
 
 == Changelog ==
+
+= 0.3.1 =
+
+* Upgrades to Arrow 1.8.0.
 
 = 0.3.0 =
 
