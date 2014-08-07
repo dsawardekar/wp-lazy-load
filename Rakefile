@@ -80,7 +80,7 @@ namespace :composer do
   desc "Update Composer dependencies"
   task :update do
     sh 'rm -rf vendor' if File.directory?('vendor')
-    sh 'composer update'
+    sh 'composer update --no-dev'
 
     # todo: use porcelain if this isn't good enough
     changed = `git status`
