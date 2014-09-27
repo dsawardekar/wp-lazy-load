@@ -4,6 +4,6 @@ namespace WpLazyLoad;
 
 class Version {
 
-  static public $version = '0.3.1';
+  static public $version = '0.3.2';
 
 }
