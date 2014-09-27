@@ -59,6 +59,7 @@ class ScriptPlacerTest extends \WP_UnitTestCase {
     $expected = array(
       'threshold' => 300,
       'effect' => 'fade',
+      'effectSpeed' => 400,
       'skipInvisible' => true,
       'placeholder' => ''
     );
