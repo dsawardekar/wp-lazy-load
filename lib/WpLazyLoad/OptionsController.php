@@ -18,6 +18,11 @@ class OptionsController extends \Arrow\Options\Controller {
       ->rule('required', 'effect')
       ->rule('in', 'effect', $this->pluginMeta->getEffectTypes())
 
+      ->rule('required', 'effectSpeed')
+      ->rule('integer', 'effectSpeed')
+      ->rule('min', 'effectSpeed', 0)
+      ->rule('max', 'effectSpeed', 10000)
+
       ->rule('safeText', 'placeholder')
       ->message('{field} must not contain markup')
 

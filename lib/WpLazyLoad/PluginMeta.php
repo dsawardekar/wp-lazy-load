@@ -16,7 +16,8 @@ class PluginMeta extends \Arrow\PluginMeta {
       'threshold'     => 200,
       'effect'        => 'fadeIn',
       'skipInvisible' => true,
-      'placeholder'   => ''
+      'placeholder'   => '',
+      'effectSpeed'   => 400
     );
   }
 
@@ -38,6 +39,13 @@ class PluginMeta extends \Arrow\PluginMeta {
     $optionsStore           = $this->lookup('optionsStore');
     $options                = $optionsStore->getOptions();
     $options['effectTypes'] = $this->getEffectTypes();
+    $defaults               = $this->getDefaultOptions();
+
+    foreach ($defaults as $key => $default) {
+      if (!array_key_exists($key, $options)) {
+        $options[$key] = $default;
+      }
+    }
 
     return $options;
   }

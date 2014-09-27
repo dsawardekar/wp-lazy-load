@@ -6,6 +6,7 @@
 
     options.threshold      = parseInt(opts.threshold, 10);
     options.skip_invisible = opts.skipInvisible === '1';
+    options.effect_speed   = parseInt(opts.effectSpeed, 10) || 400;
 
     if (opts.effect !== 'none') {
       options.effect = opts.effect;
