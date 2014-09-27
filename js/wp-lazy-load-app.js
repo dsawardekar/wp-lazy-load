@@ -97,6 +97,7 @@
   var initForm = function() {
     setFormField('threshold', getOption('threshold'));
     setFormField('placeholder', getOption('placeholder'));
+    setFormField('effectSpeed', getOption('effectSpeed'));
 
     var skipInvisible = getOption('skipInvisible');
     skipInvisible = skipInvisible === true || skipInvisible === '1';
@@ -183,6 +184,7 @@
     var data = {
       threshold: getFormField('threshold').val(),
       effect: $('#effect').val(),
+      effectSpeed: $('#effectSpeed').val(),
       skipInvisible: getFormField('skipInvisible').prop('checked'),
       placeholder: getFormField('placeholder').val()
     };
