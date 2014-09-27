@@ -63,6 +63,11 @@ Yes, see the customization section under Installation.
 
 == Changelog ==
 
+= Current =
+
+* Adds `effectSpeed` parameter to control the animation speed.
+  * Default is 400 ms.
+
 = 0.3.1 =
 
 * Upgrades to Arrow 1.8.0.
